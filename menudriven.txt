@@ -1,0 +1,66 @@
+import time
+import os
+import urllib
+import webbrowser
+import sys
+
+ 
+x='''
+press  1:to show current date and time
+press  2:to create a file
+press  3:to create a directory
+press  4:to search something on google
+press  5:logout your system
+press  6:to reboot os
+press  7:to check internet connection in your pc
+press  8:to login whatsapp on browser
+press  9:to all connected IP in your network
+'''
+print x
+choice=int(raw_input("enter your choice"))
+if choice==1 :
+   print"showing current date and time",time.ctime()
+
+elif choice==2 :
+     print"making a file"
+     path=raw_input("enter path")
+     f=open(path,"a")
+     print"file created"
+
+elif choice==3 :
+     print"making a directory"
+     path=raw_input("enter path")
+     os.makedirs(path)
+     print"directory created"
+
+elif choice==4 :
+     print"searching on google"
+     param=raw_input("type to search")
+     webbrowser.open_new_tab('https://www.google.com/search?q= '+param)
+     
+elif choice==5 :
+     print"log out system"
+     os.system('logout')
+     
+
+elif choice==6:
+      print"rebooting"
+      msg="close all the tabs"
+      os.system('echo '+msg+'  |festival--tts')
+      time.sleep(2)    
+      os.system('reboot')
+
+elif choice==7 :
+      print"checking internet conection"
+      try :
+          stri="https://www.google.com"
+          data=urllib.urlopen(stri)
+          print"connected"
+      except e:
+          print"not connected",e
+
+elif choice==8 :
+     print"login whatsaap"
+     
+     
+     
